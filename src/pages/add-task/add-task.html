@@ -1,0 +1,18 @@
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>Add Task</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+  <form (ngSubmit)="saveTask(f.value)" #f="ngForm">
+    <ion-item>
+      <ion-label>Title</ion-label>
+      <ion-textarea name="title" ngModel></ion-textarea>
+    </ion-item>
+    <button ion-button type="submit">Save Task</button>
+  </form>
+</ion-content>
