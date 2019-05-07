@@ -1,6 +1,8 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { IonicPage, NavController,NavParams } from 'ionic-angular';
 import { TaskService } from '../../providers/task-service/task-service';
+import { Task } from '../../models/task.model';
+import { FormGroup, Validators, FormControl } from '@angular/forms';
 
 @IonicPage()
 @Component({
@@ -8,13 +10,22 @@ import { TaskService } from '../../providers/task-service/task-service';
   templateUrl: 'add-task.html',
 })
 export class AddTaskPage {
+  formGroup: FormGroup;
+  task: Task;
+  date: Date = new Date();
+  title: string = '';
+  content: string = '';
 
-  constructor(public navCtrl: NavController, 
-    public navParams: NavParams,
-    private taskService: TaskService) {
+  constructor(public navCtrl: NavController, private taskService: TaskService) { 
+    this.formGroup = new FormGroup({
+      title: new FormControl(),
+      content: new FormControl(),
+      date: new FormControl(),
+    })
   }
 
-  saveTask(value: { title: string }) {
-    this.taskService.saveTask(value);
+  saveTask(task: Task) {
+    this.taskService.saveTask(task);
+    this.navCtrl.pop();
   }
 }

@@ -12,6 +12,8 @@ import { TabsPage } from '../pages/tabs/tabs';
 import { AddTaskPage } from '../pages/add-task/add-task';
 import { TaskService } from '../providers/task-service/task-service';
 import { IonicStorageModule } from '@ionic/storage';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { ViewTaskPage } from '../pages/view-task/view-task';
 
 @NgModule({
   declarations: [
@@ -20,12 +22,15 @@ import { IonicStorageModule } from '@ionic/storage';
     LoginPage,
     RegisterPage,
     TabsPage, 
-    AddTaskPage
+    AddTaskPage, 
+    ViewTaskPage
   ],
   imports: [
     BrowserModule,
     IonicModule.forRoot(MyApp),
-    IonicStorageModule.forRoot()
+    IonicStorageModule.forRoot(),
+    FormsModule,
+    ReactiveFormsModule
   ],
   bootstrap: [IonicApp],
   entryComponents: [
@@ -35,6 +40,7 @@ import { IonicStorageModule } from '@ionic/storage';
     LoginPage,
     RegisterPage, 
     AddTaskPage,
+    ViewTaskPage
   ],
   providers: [
     StatusBar,

@@ -6,7 +6,7 @@
 
 <ion-content padding>
   <ion-list>
-    <button ion-item *ngFor="let task of tasks">
+    <button ion-item *ngFor="let task of tasks | async" (click)="getTask(task.createDate)">
       {{ task.title }}
     </button>
   </ion-list>
